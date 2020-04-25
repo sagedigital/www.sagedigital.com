@@ -16,12 +16,12 @@
     <link rel="icon" href="/img/favicon-228.png" sizes="228x228">
 
     <!-- Android -->
-    <link rel="shortcut icon" href=“/path/to/favicon-196.png" sizes="196x196">
+    <link rel="shortcut icon" href=“/img/favicon-196.png" sizes="196x196">
 
     <!-- iOS -->
-    <link rel="apple-touch-icon" href="/path/to/favicon-120.png" sizes="120x120">
-    <link rel="apple-touch-icon" href="path/to/favicon-152.png" sizes="152x152">
-    <link rel="apple-touch-icon" href="path/to/favicon-180.png" sizes="180x180">
+    <link rel="apple-touch-icon" href="/img/favicon-120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/img/favicon-152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/img/favicon-180.png" sizes="180x180">
 
     <link media="all" rel="stylesheet" href="/css/styles.css">
 
@@ -46,14 +46,12 @@
           document.getElementsByTagName("body")[0].classList.remove('scrolled');
         }
       }
-      </script>
+    </script>
 
-<style type="text/css">
+    <style type="text/css">
       /* Above the Fold styles for speed */
 
-
-      /* Extra small devices (portrait phones, less than 576px) */
-      /* No media query since this is the default */
+      /* Default: Extra small devices (portrait phones, less than 576px) */
 
       html,
       body {
@@ -66,6 +64,27 @@
       .svg-symbol {
         display: none;
       }
+
+
+      /* Layout Elements */
+      /* ------------------------------------------------------------------- */
+
+      .site-header-layout {
+        background-color: rgba(247,246,246,0.0);
+        box-shadow: 0 0px 5px rgba(0,0,0,0.001);
+        height: 54px;
+        position: fixed;
+        width: 100%;
+        z-index: 5;
+
+        transition: all 1s;
+      }
+        body.scrolled .site-header-layout {
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+          background-color: rgba(247,246,246,0.9);
+          box-shadow: 0 0px 5px rgba(0,0,0,0.2);
+        }
 
       .header-logo {
         margin: 1.25em;
@@ -202,9 +221,9 @@
             padding: 50px;
             padding-top: 125px;
             -webkit-font-smoothing: antialiased; /* debug Safari text flickering */
-            -webkit-backdrop-filter: blur(6px);
-            backdrop-filter: blur(6px);
-            background-color: rgba(255,255,255,0.85);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background-color: rgba(247,246,246,0.85);
             box-shadow: 0 0px 5px rgba(0,0,0,0.2);
 
             transform-origin: 0% 100%;
@@ -215,6 +234,82 @@
           #site-nav-toggle input:checked ~ ul {
             transform: none;
           }
+
+
+      .home-hero {
+        clear: both;
+        text-align: center;
+      }
+        .home-hero-image {
+          background: #C6E5EE url('img/home-hero-image.jpg') 50% 50% no-repeat;
+          background-size: cover;
+          height: 100vh;
+          min-height: 300px;
+          position: relative;
+          width: 100vw;
+        }
+          .home-hero-image::before,
+          .home-hero-image::after {
+            background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.0));
+            bottom: 60%;
+            content: "";
+            display: block;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 0;
+          }
+          .home-hero-image::after {
+            background: linear-gradient(0deg, rgba(19,17,24,0.5), rgba(19,17,24,0.0));
+            bottom: 0;
+            top: 75%;
+          }
+
+        .home-hero-marquee {
+          position: absolute;
+          top: 20vh;
+          width: 100%;
+          margin: 0;
+          padding: 0 5%;
+          font-size: 1.066rem;
+          font-weight: normal;
+        }
+          .home-hero-logo-layout {
+            display: block;
+            position: relative;
+            padding-top: 40px;
+          }
+            .home-hero-logo-layout .sage-digital-logo-shadow {
+              display: block;
+              position: absolute;
+              width: 100%;
+              max-height: 40px;
+              z-index: 1;
+              fill: #00CCFF;
+              top: 2px;
+              left: 0;
+            }
+            .home-hero-logo-layout .sage-digital-logo {
+              display: block;
+              position: absolute;
+              width: 100%;
+              max-height: 40px;
+              z-index: 2;
+              fill: #19171D;
+              top: 0;
+            }
+          .home-hero-tagline {
+            font-size: 1.6rem;
+            font-weight: 400;
+            padding: 1.1rem 5%;
+          }
+          .home-hero-tagline mark {
+            background-color: transparent;
+            font-weight: 600;
+          }
+
+          .home-hero-cta {}
 
 
       /* Small devices (landscape phones, 576px and up) */
@@ -308,25 +403,6 @@
     <!-- End of Async Drift Code -->
 
     <header class="site-header">
-      <style type="text/css">
-        .site-header-layout {
-          background-color: rgba(255,255,255,0.0);
-          box-shadow: 0 0px 5px rgba(0,0,0,0.001);
-          height: 54px;
-          position: fixed;
-          width: 100%;
-          z-index: 5;
-
-          transition: all 1s;
-        }
-        body.scrolled .site-header-layout {
-          -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
-          background-color: rgba(255,255,255,0.85);
-          box-shadow: 0 0px 5px rgba(0,0,0,0.2);
-        }
-      </style>
-
       <div class="site-header-layout">
         <div class="header-logo">
           <svg class="sage-digital-logo-shadow">
@@ -358,79 +434,6 @@
     </header>
 
     <style type="text/css">
-      .home-hero {
-        clear: both;
-        text-align: center;
-      }
-        .home-hero-image {
-          background: #C6E5EE url('img/home-hero-image.jpg') 50% 50% no-repeat;
-          background-size: cover;
-          height: 100vh;
-          min-height: 300px;
-          position: relative;
-          width: 100vw;
-        }
-          .home-hero-image::before,
-          .home-hero-image::after {
-            background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.0));
-            bottom: 60%;
-            content: "";
-            display: block;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            z-index: 0;
-          }
-          .home-hero-image::after {
-            background: linear-gradient(0deg, rgba(19,17,24,0.5), rgba(19,17,24,0.0));
-            bottom: 0;
-            top: 75%;
-          }
-
-        .home-hero-marquee {
-          position: absolute;
-          top: 20vh;
-          width: 100%;
-          margin: 0;
-          padding: 0 5%;
-          font-size: 1.066rem;
-          font-weight: normal;
-        }
-          .home-hero-logo-layout {
-            display: block;
-            position: relative;
-            padding-top: 40px;
-          }
-            .home-hero-logo-layout .sage-digital-logo-shadow {
-              display: block;
-              position: absolute;
-              width: 100%;
-              max-height: 40px;
-              z-index: 1;
-              fill: #00CCFF;
-              top: 2px;
-              left: 0;
-            }
-            .home-hero-logo-layout .sage-digital-logo {
-              display: block;
-              position: absolute;
-              width: 100%;
-              max-height: 40px;
-              z-index: 2;
-              fill: #19171D;
-              top: 0;
-            }
-          .home-hero-tagline {
-            font-weight: 400;
-            padding: 1.1rem 5%;
-          }
-          .home-hero-tagline mark {
-            background-color: transparent;
-            font-weight: 600;
-          }
-
-          .home-hero-cta {}
     </style>
 
     <main>
