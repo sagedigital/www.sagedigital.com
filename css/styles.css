@@ -1,0 +1,46 @@
+/* Assets
+// --------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap');
+
+
+
+/* Basic Elements
+// --------------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, sans-serif;
+}
+
+
+/* Form Styles
+// --------------------------------------------------------------------- */
+
+a.button-cta,
+button.button-cta,
+input[type="button"].button-cta {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  font-size: 0.84375rem;
+  background-color: #19171D;
+  display: inline-block;
+  border-radius: 0.3em;
+  padding: 1em 2.5em;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0.133em 0 #00CCFF;
+}
+
+
+/* Site Components
+// --------------------------------------------------------------------- */
+

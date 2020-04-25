@@ -5,8 +5,151 @@
     <title>Error</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
-    <link media="all" rel="stylesheet" href="/css/localhost.css">
-    <script src='/js/localhost.js'></script>
+    <link media="all" rel="stylesheet" href="/css/styles.css">
+
+    <script>
+      var trianglifyBackground = function() {
+        var randomHexColor = function () {
+          var returnColor = '';
+
+          while (returnColor.length < 6) {
+            var returnColor = Math.floor(Math.random() * 16777215).toString(16);
+          }
+
+          return '#' + returnColor;
+        }
+
+        function shadeColor(color, percent) {
+          var f = parseInt(color.slice(1), 16),
+            t = percent < 0 ? 0 : 255,
+            p = percent < 0 ? percent * -1 : percent,
+            R = f >> 16,
+            G = f >> 8 & 0x00FF,
+            B = f & 0x0000FF;
+          return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
+        }
+
+        var colorA = randomHexColor();
+        var colorB = randomHexColor();
+        var pattern = Trianglify({
+          width: document.documentElement.offsetWidth,
+          height: document.documentElement.offsetHeight,
+          cell_size: 150,
+          variance: 1,
+          x_colors: [shadeColor(colorA, -0.75), colorA],
+          y_colors: [shadeColor(colorB, 0.75), colorB, shadeColor(colorB, -0.75)],
+        });
+
+        var background = document.createElement('div');
+        background.className = 'body-background';
+        background.style.backgroundImage = ' url(' + pattern.png() + ')';
+
+        document.body.appendChild(background);
+      };
+
+      (function (g, d, s) {
+        var f = d.getElementsByTagName(s)[0],
+          m = d.createElement(s);
+
+        m.async = true;
+        m.defer = true;
+        m.src = 'https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js';
+        m.onload = trianglifyBackground;
+
+        f.parentNode.insertBefore(m, f);
+      })(window, document, 'script');
+    </script>
+
+    <style type="text/css">
+      /* Assets
+      // --------------------------------------------------------------------- */
+
+      @import url('https://fonts.googleapis.com/css?family=Muli|Roboto+Mono|Roboto+Slab');
+
+
+      /* Elements
+      // --------------------------------------------------------------------- */
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        font:       16px/1.33 Muli, sans-serif;
+        margin:     0;
+        padding:    0;
+        min-height: 1000px;
+      }
+
+      body {
+        align-items:     center;
+        background:      #b6c6c9;
+        justify-content: center;
+        display:         flex;
+        flex-direction:  column;
+        min-height:      100vh;
+        text-align:      center;
+      }
+
+      main {
+        background:      #fff;
+        box-shadow:      0 1px 4px rgba(0,0,0,0.1);
+        color:           #222;
+        display:         flex;
+        flex-direction:  column;
+        height:          50vh;
+        justify-content: center;
+        margin:          0;
+        min-height:      20rem;
+        min-width:       20rem;
+        padding:         3rem;
+        position:        relative;
+        width:           67vh;
+        z-index:         1;
+      }
+
+      .body-background {
+        background-position: 50% 50%;
+        background-size:     cover;
+        bottom:              0;
+        left:                0;
+        position:            fixed;
+        right:               0;
+        top:                 0;
+      }
+
+      h1 {
+        color:       #3f5555;
+        font-family: serif;
+        font-size:   2.5rem;
+        font-weight: 200;
+      }
+      h1:first-child,
+      p:first-child {
+        margin-top: 0;
+      }
+      h1:last-child,
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+
+      /* Reusable Styles
+      // --------------------------------------------------------------------- */
+
+      .note {
+        color: #999;
+      }
+
+
+      /* Themes
+      // --------------------------------------------------------------------- */
+
+      body.technical main header h1 {
+        font-family: 'Roboto Mono', monospace;
+      }
+    </style>
   </head>
 
   <body class="technical status-error-generic">
