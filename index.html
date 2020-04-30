@@ -276,8 +276,9 @@
       /* ------------------------------------------------------------------- */
 
       .site-header-layout {
-        -webkit-backdrop-filter: blur(0px);
-        background-color: rgba(247,246,246,0.0);
+        /* -webkit-backdrop-filter: blur(0px); */
+        /* backdrop-filter: blur(0px); */
+        background-color: rgba(247,246,246,0.001);
         box-shadow: 0 0px 5px rgba(0,0,0,0.001);
         height: 54px;
         position: fixed;
@@ -287,9 +288,9 @@
         transition: all 1s;
       }
         body.scrolled .site-header-layout {
-          -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-          background-color: rgba(247,246,246,0.9);
+          /* -webkit-backdrop-filter: blur(10px); */
+          /* backdrop-filter: blur(10px); */
+          background-color: rgba(247,246,246,0.95);
           box-shadow: 0 0px 5px rgba(0,0,0,0.2);
           height: 54px;
           position: fixed;
@@ -430,9 +431,9 @@
             padding: 50px;
             padding-top: 125px;
             -webkit-font-smoothing: antialiased; /* debug Safari text flickering */
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            background-color: rgba(247,246,246,0.85);
+            /* -webkit-backdrop-filter: blur(10px); */
+            /* backdrop-filter: blur(10px); */
+            background-color: rgba(255,255,255,0.95);
             box-shadow: 0 0px 5px rgba(0,0,0,0.2);
 
             transform-origin: 0% 100%;
