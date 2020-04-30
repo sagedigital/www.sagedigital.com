@@ -988,11 +988,15 @@
     </script>
 
     <script>
+      var asyncLoadScript = function(src) {
+        var script = document.createElement("script")
+        script.src = src;
+        document.body.appendChild(script);
+      };
+
       // Loads Drift script after window has loaded
       window.addEventListener("load", function () {
-        var script = document.createElement("script")
-        script.src = '/js/drift.js';
-        document.body.appendChild(script)
+        var driftScript = setTimeout(asyncLoadScript, 3000, '/js/drift.js');
       });
     </script>
   </body>
