@@ -1,15 +1,31 @@
 /* Assets
 // --------------------------------------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap');
-
-
 
 /* Basic Elements
 // --------------------------------------------------------------------- */
 
 * {
   box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+::-moz-focus-inner {
+  border: 0;
+}
+
+::selection {
+  background-color: #00CCFF;
+  color: #000;
+}
+
+a,
+a:visited,
+a:link,
+a:active {
+  color: #00CCFF;
 }
 
 h1,
@@ -19,6 +35,7 @@ h4,
 h5,
 h6 {
   font-family: Montserrat, sans-serif;
+  font-weight: 600;
 }
 
 

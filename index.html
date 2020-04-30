@@ -48,6 +48,8 @@
       }
     </script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style type="text/css">
       /* Above the Fold styles for speed */
 
@@ -59,6 +61,8 @@
         padding: 0;
         margin: 0;
         font-size: 15px;
+        line-height: 1.25;
+        font-family: Lato, sans-serif;
       }
 
       .svg-symbol {
@@ -70,6 +74,7 @@
       /* ------------------------------------------------------------------- */
 
       .site-header-layout {
+        -webkit-backdrop-filter: blur(0px);
         background-color: rgba(247,246,246,0.0);
         box-shadow: 0 0px 5px rgba(0,0,0,0.001);
         height: 54px;
@@ -84,6 +89,8 @@
           backdrop-filter: blur(10px);
           background-color: rgba(247,246,246,0.9);
           box-shadow: 0 0px 5px rgba(0,0,0,0.2);
+          height: 54px;
+          position: fixed;
         }
 
       .header-logo {
@@ -124,10 +131,10 @@
           user-select: none;
         }
 
-          #site-nav-toggle input {
+          #site-nav-toggle input[type="checkbox"] {
             display: block;
-            width: 40px;
-            height: 32px;
+            width: 33px;
+            height: 30px;
             position: absolute;
             top: -7px;
             right: -5px;
@@ -266,51 +273,191 @@
             top: 75%;
           }
 
-        .home-hero-marquee {
-          position: absolute;
-          top: 20vh;
-          width: 100%;
-          margin: 0;
-          padding: 0 5%;
-          font-size: 1.066rem;
-          font-weight: normal;
+      .home-hero-marquee {
+        position: absolute;
+        top: 20vh;
+        width: 100%;
+        margin: 0;
+        padding: 0 5%;
+        font-size: 1.066rem;
+        font-weight: normal;
+      }
+        .home-hero-logo-layout {
+          display: block;
+          position: relative;
+          padding-top: 40px;
         }
-          .home-hero-logo-layout {
+          .home-hero-logo-layout .sage-digital-logo-shadow {
             display: block;
-            position: relative;
-            padding-top: 40px;
+            position: absolute;
+            width: 100%;
+            height: 86px;
+            z-index: 1;
+            fill: #00CCFF;
+            top: 2px;
+            left: 0;
           }
-            .home-hero-logo-layout .sage-digital-logo-shadow {
-              display: block;
-              position: absolute;
-              width: 100%;
-              max-height: 40px;
-              z-index: 1;
-              fill: #00CCFF;
-              top: 2px;
-              left: 0;
-            }
-            .home-hero-logo-layout .sage-digital-logo {
-              display: block;
-              position: absolute;
-              width: 100%;
-              max-height: 40px;
-              z-index: 2;
-              fill: #19171D;
-              top: 0;
-            }
-          .home-hero-tagline {
-            font-size: 1.6rem;
-            font-weight: 400;
-            padding: 1.1rem 5%;
-          }
-          .home-hero-tagline mark {
-            background-color: transparent;
-            font-weight: 600;
+          .home-hero-logo-layout .sage-digital-logo {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 86px;
+            z-index: 2;
+            fill: #19171D;
+            top: 0;
           }
 
-          .home-hero-cta {}
+      .home-hero-tagline {
+        font-size: 1.6rem;
+        font-weight: 400;
+        padding: 1.1rem 5%;
+      }
+        .home-hero-tagline mark {
+          background-color: transparent;
+          font-weight: 600;
+        }
 
+      .home-hero-cta {}
+
+      hr.scrollthingy {
+        display: block;
+        width: 10rem;
+        height: .333rem;
+        background: #000;
+        border-radius: 0.2rem;
+        margin: 2rem auto;
+      }
+
+      .home-services {
+        background: #000 url('/img/home-services-image.jpg') no-repeat 50% 100%;
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+      }
+        .home-services-layout {
+          max-width: 1280px;
+          margin: auto;
+        }
+      .columns {
+        display: flex;
+        flex-direction: row;
+      }
+        .columns .column {}
+
+      /* Text Presentation Styles */
+
+      .marquee-layout {
+        max-width: 57rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem 4rem;
+      }
+
+      .marquee-text {
+        text-align: center;
+      }
+        .marquee-text h2 {
+          font-size: 1.333rem;
+          color: #00CCFF;
+        }
+          .marquee-text h2:first-child {
+            margin-top: 0;
+          }
+        .marquee-text h3 {
+          font-size: 2rem;
+        }
+          .marquee-text h3:first-child {
+            margin-top: 0;
+          }
+        .marquee-text p {
+          font-size: 1.333rem;
+        }
+        .marquee-text h3 + p {
+          margin-top: -1rem;
+        }
+        .marquee-text hr:last-child {
+          margin-bottom: 0
+        }
+
+      .home-services {
+        padding: 2rem;
+      }
+        .home-services-left {
+          padding-right: 4rem;
+        }
+        .home-services-right {
+          padding-left: 4rem;
+        }
+        .home-services-icons {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          width: 1260px;
+          margin: 0 auto;
+        }
+          .service-icon {
+            width: 180px;
+            padding-top: 9rem;
+            background-position: 50% 0;
+            background-repeat: no-repeat;
+            background-size: 120px auto;
+          }
+          .service-icon-strategy {
+            background-image: url('/img/services-strategy.svg');
+          }
+          .service-icon-digitalmarketing {
+            background-image: url('/img/services-digitalmarketing.svg');
+          }
+          .service-icon-uiuxdesign {
+            background-image: url('/img/services-uiuxdesign.svg');
+          }
+          .service-icon-mobileapps {
+            background-image: url('/img/services-mobileapps.svg');
+          }
+          .service-icon-seocontent {
+            background-image: url('/img/services-seocontent.svg');
+          }
+          .service-icon-websites {
+            background-image: url('/img/services-websites.svg');
+          }
+          .service-icon-apidevelopment {
+            background-image: url('/img/services-apidevelopment.svg');
+          }
+      
+      .home-about {
+        width: 1280px;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+      }
+        .home-about-left {
+          flex: 1;
+          width: 50%;
+        }
+        .home-about-right {
+          flex: 1;
+          width: 50%;
+          background: #000000 url('/img/home-about-image.jpg') no-repeat 50% 50%;
+          background-size: cover;
+        }
+
+      .home-contact {
+        background-color: #00CCFF;
+      }
+
+      .site-footer {
+        text-align: center;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+        padding: 1rem 1rem 10rem;
+        background-color: #00CCFF;
+      }
+        .site-footer a:visited,
+        .site-footer a:link,
+        .site-footer a:active {
+          color: #000;
+          margin: 0 0.25em
+        }
 
       /* Small devices (landscape phones, 576px and up) */
 
@@ -323,11 +470,28 @@
             position: absolute;
             fill: #fff;
             margin-top: 1px;
-
+            max-width: 62vw;
           }
           .header-logo .sage-digital-logo {
             position: absolute;
             fill: #00CCFF;
+            max-width: 62vw;
+          }
+
+        .home-hero-marquee {
+          top: 25vh;
+        }
+          .home-hero-logo-layout {
+          }
+            .home-hero-logo-layout .sage-digital-logo-shadow {
+              width: 100%;
+              max-height: 55px;
+            }
+            .home-hero-logo-layout .sage-digital-logo {
+              max-height: 55px;
+            }
+          .home-hero-tagline {
+            font-size: 1rem;
           }
       }
 
@@ -335,6 +499,9 @@
       /* Medium devices (tablets, 768px and up) */
 
       @media (min-width: 768px) {
+        .home-hero-image {
+          height: 67vh;
+        }
 
       }
 
@@ -348,9 +515,7 @@
 
       /* Extra large devices (large desktops, 1200px and up) */
 
-      @media (min-width: 1200px) {
-
-      }
+      /* @media (min-width: 1200px) {} */
     </style>
   </head>
 
@@ -424,8 +589,8 @@
 
             <ul id="site-nav-menu">
               <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
               <li><a href="#services">Services</a></li>
+              <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -451,55 +616,83 @@
             </span>
 
             <h1 class="home-hero-tagline">
-              <mark>Web apps,</mark>
-              <mark>mobile apps,</mark>
-              and
-              <mark>digital marketing solutions</mark>
-              that create results
+              World-leading, senior software leadership at a fractional cost
             </h1>
 
             <div class="home-hero-cta">
-              <a href="#services" class="button-cta" data-ux="smoothscroll">Nice! Show me more</a>
+              <a href="#services" class="button-cta" data-ux="smoothscroll">Show me more</a>
             </div>
           </div>
         </div>
 
-        <div class="home-hero-summary" id="services">
+        <div class="marquee-layout marquee-text" id="services">
           <h3>We Partner With You to Unleash Growth </h3>
 
           <p>
-            We are data-driven marketers, software creators, and experienced strategists who partner with you to lift the fog of being busy. We have years of hands-on software experience, have launched and sold businesses, and have a passion for life outside the norm.
+            We are data-driven software creators and experienced strategists. We partner with you to quickly solve problems because we have decades of project delivery experience and a passion for solutions outside the norm.
           </p>
+
+          <hr class="scrollthingy">
         </div>
       </section>
 
-      <section class="home-services">
-        <h2>Our Services</h2>
+      <section class="home-services marquee-text">
+        <div class="home-services-layout">
+          <h2>Our Services</h2>
 
-        <div class="home-services-left">
-          <h3>Fractional CTO</h3>
-        </div>
+          <div class="columns">
+            <div class="home-services-left column marquee-text">
+              <h3>World-Class Senior Software Architects </h3>
 
-        <div class="home-services-right">
-          <h3>Custom Services</h3>
-        </div>
+              <p>
+                Our senior software architects are seasoned professionals who have contributed at the highest organizational levels. 
+              </p>
 
-        <div class="home-services-icons">
-          <h4 class="service-icon-strategy">Strategy</h4>
-          <h4 class="service-icon-digitalmarketing">Digital Marketing</h4>
-          <h4 class="service-icon-uiuxdesign">UI & UX Design</h4>
-          <h4 class="service-icon-mobileapps">Mobile Apps</h4>
-          <h4 class="service-icon-seocontent">SEO + Content</h4>
-          <h4 class="service-icon-websites">Websites</h4>
-          <h4 class="service-icon-apidevelopment">API Development</h4>
+              <p>
+                Their constant project involvement ensures that every line of code crafted by our teams is coached, reviewed, and refined, so only the best practices make it to production. With this, we increase reliability and shorten development time in every project.
+              </p>
+
+              <!-- <p>
+                <a href=""> Meet Our Senior Team</a>
+              </p> -->
+            </div>
+
+            <div class="home-services-right column marquee-text">
+              <h3>
+                Affordable Software Development. On time.
+              </h3>
+
+              <p>
+                 We establish measurable, meaningful goals at the start of every project, because we want to avoid surprises as much as you do.
+              </p>
+
+              <p>
+                Years of experience allow us to mentor our own developers to quickly execute steps that create impact first. This practice is at the heart of everything we do – providing early business value and ensuring the continual success of our work. 
+              </p>
+
+              <!-- <p>
+                <a href="">Read: The Anatomy of a Successful Project</a>
+              </p> -->
+            </div>
+          </div>
+
+          <div class="home-services-icons">
+            <h4 class="service-icon service-icon-strategy">Strategy</h4>
+            <h4 class="service-icon service-icon-digitalmarketing">Digital Marketing</h4>
+            <h4 class="service-icon service-icon-uiuxdesign">UI & UX Design</h4>
+            <h4 class="service-icon service-icon-mobileapps">Mobile Apps</h4>
+            <h4 class="service-icon service-icon-seocontent">SEO + Content</h4>
+            <h4 class="service-icon service-icon-websites">Websites</h4>
+            <h4 class="service-icon service-icon-apidevelopment">API Development</h4>
+          </div>
         </div>
       </section>
 
-      <section class="home-about">
-        <div class="home-about-left">
+      <section class="home-about" id="about">
+        <div class="home-about-left marquee-text marquee-layout">
           <h2>About Us</h2>
 
-          <h3>Our Experience Was Earned Launching, Growing, and Selling Our Own Businesses</h3>
+          <h3>We Strive for Atypical Results</h3>
 
           <p>
              We don't do well with normal. Instead, our experience working with small and midsized businesses and venture-backed startups has taught us to avoid the normal waste of endless projects and poorly defined budgets by using a system of lean, small, repeatable steps.
@@ -508,35 +701,49 @@
           <p>
              Using a lean process, we tackle new challenges rapidly, create happier customers sooner, and uncover even more opportunities for growth because we avoid the mistakes that come from stumbling in the dark.
           </p>
+
+          <div class="home-about-roster">
+            <div class="roster-thumbnail">
+              <h4>Brian Sage</h4>
+              <p>Co-Founder</p>
+              <div class="roster-thumbnail-image briansage"></div>
+            </div>
+
+            <div class="roster-thumbnail">
+              <h4>Michele Sage</h4>
+              <p>Co-Founder/Advisor</p>
+              <div class="roster-thumbnail-image michelesage"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="home-about-roster">
-          <div class="roster-thumbnail">
-            <h4>Brian Sage</h4>
-            <p>Co-Founder</p>
-            <div class="roster-thumbnail-image briansage"></div>
-          </div>
-
-          <div class="roster-thumbnail">
-            <h4>Michele Sage</h4>
-            <p>Co-Founder/Advisor</p>
-            <div class="roster-thumbnail-image michelesage"></div>
-          </div>
-        </div>
+        <div class="home-about-right"></div>
       </section>
 
-      <section class="home-contact">
-        <h2>Contact Us</h2>
+      <section class="home-contact" id="contact">
+        <div class="home-contact-layout marquee-layout marquee-text">
+          <h2>Contact Us</h2>
 
-        <h3>Ready? Let's Talk</h3>
+          <h3>Ready? Let's Talk</h3>
 
-        <p>
-          Want to talk over an idea before you jump in? Advisory sessions are on us, so you can be comfortable before making a commitment.
-        </p>
+          <p>
+            Want to talk over an idea before you jump in? Advisory sessions are on us, so you can be comfortable before making a commitment.
+          </p>
+
+          <!-- modify this form HTML and place wherever you want your form -->
+          <form id="my-form" action="https://formspree.io/xzbaqnpq" method="POST">
+            <label>Email:</label>
+            <input type="email" name="email" />
+            <label>Message:</label>
+            <input type="text" name="message" />
+            <button id="my-form-button">Submit</button>
+            <p id="my-form-status"></p>
+          </form>
+        </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <p>
         &copy; Copyright 2020 Sage Digital, a Colorado LLC |
         <a href="/terms-and-conditions.html">Terms and Conditions</a>
@@ -544,30 +751,6 @@
         <a href="/privacy-policy.html">Privacy Policy</a>
       </p>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- modify this form HTML and place wherever you want your form -->
-    <form id="my-form" action="https://formspree.io/xzbaqnpq" method="POST">
-      <label>Email:</label>
-      <input type="email" name="email" />
-      <label>Message:</label>
-      <input type="text" name="message" />
-      <button id="my-form-button">Submit</button>
-      <p id="my-form-status"></p>
-    </form>
 
     <script>
       /* **************************************************************************
