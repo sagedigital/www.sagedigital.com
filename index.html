@@ -303,9 +303,10 @@
               .site-nav ul li a:link,
               .site-nav ul li a:visited {
                 display: block;
-                padding: 0.25rem;
+                padding: 0.5rem;
+                margin: 0.25rem 0;
                 font-weight: 600;
-                font-size: 0.84375;
+                font-size: 1.25rem;
                 font-family: Montserrat, sans-serif;
                 text-decoration: none;
                 color: #000;
@@ -459,12 +460,24 @@
         clear: both;
         text-align: center;
       }
+
         @media (min-width: 768px) {
           .hero-text {
             background: #fff;
             box-shadow: 0 -2px 7px rgba(0,0,0,0.07);
             position: relative;
             margin-top: -60px;
+          }
+        }
+
+        .hero-text .marquee-text h1 {
+          font-size: 1.6em;
+          margin-bottom:
+        }
+        @media (min-width: 768px) {
+          .hero-text .marquee-text h1 {
+            font-size: 1.6em;
+            margin-bottom:
           }
         }
 
@@ -514,15 +527,18 @@
           .marquee-text h2:first-child {
             margin-top: 0;
           }
+        .marquee-text h1,
         .marquee-text h3 {
           font-size: 2rem;
         }
+          .marquee-text h1:first-child,
           .marquee-text h3:first-child {
             margin-top: 0;
           }
         .marquee-text p {
           font-size: 1.333rem;
         }
+        .marquee-text h1 + p,
         .marquee-text h3 + p {
           margin-top: -1rem;
         }
@@ -774,12 +790,24 @@
         }
           .columns .column {}
 
-        .home-services-left {
-          padding-right: 4rem;
-        }
+        .home-services-left,
         .home-services-right {
-          padding-left: 4rem;
+          flex: 1;
+          width: 50%;
+          margin: 0 auto 2rem;
+          padding-right: 2rem;
+          padding-left: 2rem;
         }
+          .home-services-left h3,
+          .home-services-right h3 {
+            font-size: 1.85em;
+            line-height: 1.333;
+          }
+          .home-services-left p,
+          .home-services-right p {
+            font-size: 1.25em;
+            line-height: 1.333;
+          }
       }
 
 
@@ -934,7 +962,7 @@
 
         <div class="hero-text">
           <div class="marquee-layout marquee-text" id="services">
-            <h3>Web and Mobile Apps.<br>Custom Software Solutions.</h3>
+            <h1>Web, Mobile, and Custom Software Solutions</h1>
 
             <p>
               We are data-driven creators and experienced strategists. We partner with you to quickly solve problems with decades of project delivery experience and a passion for solutions outside the norm.
@@ -965,11 +993,11 @@
               <h3>World-Class Senior Software Architects </h3>
 
               <p>
-                Our project leaders are senior architects, product owners, and CTOs. 
+                Our project leaders are hands-on senior architects, CTOs, and product owners. 
               </p>
 
               <p>
-                Their constant project involvement ensures that every line of code crafted by our teams is coached, reviewed, and refined so only the best practices make it to production. We increase reliability and shorten development time in every project.
+                Their constant involvement ensures that every line of code is coached, reviewed, and refined so only the best practices make it to production. We increase reliability and shorten development time in every project.
               </p>
             </div>
 
@@ -983,7 +1011,7 @@
               </p>
 
               <p>
-                We mentor our own developers to execute steps that create impact first. This practice is at the heart of everything we do, providing early business value and ensuring the continual success of our work. 
+                We mentor our own developers to create impact first. This practice is at the heart of everything we do, providing early business value and ensuring the continual success of our work. 
               </p>
 
               <!-- <p>
@@ -1001,11 +1029,11 @@
           <h3>We Strive for Atypical Results</h3>
 
           <p>
-             We don't do well with normal. Instead, our experience working with small and midsized businesses and venture-backed startups has taught us to avoid the normal waste of endless projects and poorly defined budgets by using a system of lean, small, repeatable steps.
+             We don't do well with normal. Instead, our experience with small and midsized businesses and venture-backed startups has taught us to avoid the normal waste of endless projects and poorly defined budgets.
           </p>
 
           <p>
-             Using a lean process, we tackle new challenges rapidly, create happier customers sooner, and uncover even more opportunities for growth because we avoid the mistakes that come from stumbling in the dark.
+            We use a system of lean, small, repeatable steps to tackle new challenges rapidly. We create happier customers sooner, and uncover more opportunities for growth because we avoid the mistake of stumbling in the dark.
           </p>
 
           <div class="home-about-roster">
@@ -1233,10 +1261,10 @@
     <footer class="site-footer">
       <p>
         &copy; Copyright 2020 Sage Digital, a Colorado LLC
-         <!-- |
-        <a href="/terms-and-conditions.html">Terms and Conditions</a>
-        <a href="/licenses.html">Licenses</a>
-        <a href="/privacy-policy.html">Privacy Policy</a> -->
+        |
+        </li><a href="https://www.linkedin.com/company/sagedigital-com/" title="Sage Digital LinkedIn" target="_blank">LinkedIn</a>
+        </li><a href="https://github.com/sagedigital" title="Sage Digital GitHub" target="_blank">GitHub</a>
+        </li><a href="https://vimeo.com/sagedigital" title="Sage Digital Vimeo" target="_blank">Vimeo</a>
       </p>
     </footer>
 
