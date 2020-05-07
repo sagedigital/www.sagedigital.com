@@ -1,8 +1,8 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js video-not-loaded video-paused">
   <head>
     <meta charset="utf-8" />
-    <title>Cross-Shore Digital Custom Services – Affordable Websites, Apps, and Digital Marketing Solutions - Sage Digital - Denver, CO</title>
+    <title>Websites, mobile apps, and custom software solutions - Sage Digital - Denver, CO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- generics -->
@@ -51,10 +51,14 @@
       document.documentElement.classList.remove("no-js");
 
       window.onscroll = function() {
-        if (window.pageYOffset > 40) {
-          document.getElementsByTagName("body")[0].classList.add('scrolled');
+        var heroVideo = document.querySelector('#hero-video');
+
+        var targetHeight = (heroVideo.offsetHeight / 2 || 60);
+
+        if (window.pageYOffset > targetHeight) {
+          document.getElementsByTagName("html")[0].classList.add('scrolled');
         } else {
-          document.getElementsByTagName("body")[0].classList.remove('scrolled');
+          document.getElementsByTagName("html")[0].classList.remove('scrolled');
         }
       }
     </script>
@@ -186,7 +190,8 @@
 
         transition: all 1s;
       }
-        body.scrolled .site-header-layout {
+        html.scrolled .site-header-layout,
+        html.video-paused .site-header-layout {
           background-color: rgba(247,246,246,0.95);
           box-shadow: 0 0px 5px rgba(0,0,0,0.2);
           height: 54px;
@@ -197,18 +202,12 @@
         margin: 1.25em;
         width: 40vw;
       }
-        .header-logo .sage-digital-logo,
-        .header-logo .sage-digital-logo-shadow {
+        .header-logo .sage-digital-logo {
           fill: #00CCFF;
           height: 20px;
           position: absolute;
           width: 140px;
           z-index: 2;
-        }
-        .header-logo .sage-digital-logo-shadow {
-          fill: #fff;
-          margin-top: 1px;
-          z-index: 1;
         }
 
       @media (max-width: 767.999px) {
@@ -412,19 +411,28 @@
                 color: #00CCFF;
               }
 
-              body.scrolled .site-nav ul li a,
-              body.scrolled .site-nav ul li a:link,
-              body.scrolled .site-nav ul li a:visited {
+              html.video-paused .site-nav ul li a,
+              html.video-paused .site-nav ul li a:link,
+              html.video-paused .site-nav ul li a:visited,
+              html.scrolled .site-nav ul li a,
+              html.scrolled .site-nav ul li a:link,
+              html.scrolled .site-nav ul li a:visited {
                 color: #000;
               }
-              body.scrolled .site-nav ul li a:hover,
-              body.scrolled .site-nav ul li a:link:hover,
-              body.scrolled .site-nav ul li a:visited:hover {
+              html.video-paused .site-nav ul li a:hover,
+              html.video-paused .site-nav ul li a:link:hover,
+              html.video-paused .site-nav ul li a:visited:hover,
+              html.scrolled .site-nav ul li a:hover,
+              html.scrolled .site-nav ul li a:link:hover,
+              html.scrolled .site-nav ul li a:visited:hover {
                 color: #00CCFF;
               }
-              body.scrolled .site-nav ul li a.cta,
-              body.scrolled .site-nav ul li a.cta:link,
-              body.scrolled .site-nav ul li a.cta:visited {
+              html.video-paused .site-nav ul li a.cta,
+              html.video-paused .site-nav ul li a.cta:link,
+              html.video-paused .site-nav ul li a.cta:visited,
+              html.scrolled .site-nav ul li a.cta,
+              html.scrolled .site-nav ul li a.cta:link,
+              html.scrolled .site-nav ul li a.cta:visited {
                 display: block;
                 padding: 0.5rem 2em;
                 margin: -0.25rem 1em;
@@ -437,9 +445,12 @@
 
                 transition: color 0.3s ease;
               }
-              body.scrolled .site-nav ul li a.cta:hover,
-              body.scrolled .site-nav ul li a.cta:link:hover,
-              body.scrolled .site-nav ul li a.cta:visited:hover {
+              html.video-paused .site-nav ul li a.cta:hover,
+              html.video-paused .site-nav ul li a.cta:link:hover,
+              html.video-paused .site-nav ul li a.cta:visited:hover,
+              html.scrolled .site-nav ul li a.cta:hover,
+              html.scrolled .site-nav ul li a.cta:link:hover,
+              html.scrolled .site-nav ul li a.cta:visited:hover {
                 color: #00CCFF;
               }
       }
@@ -451,12 +462,12 @@
         @media (min-width: 768px) {
           .hero-text {
             background: #fff;
-            box-shadow: 0 -2px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 -2px 7px rgba(0,0,0,0.07);
             position: relative;
             margin-top: -60px;
           }
         }
-        .home-hero-image {
+        /* .home-hero-image {
           background: #C6E5EE url('img/home-hero-image.webp') 50% 50% no-repeat;
           background-size: cover;
           height: 100vh;
@@ -466,7 +477,7 @@
         }
           .no-webp .home-hero-image {
             background-image: url('img/home-hero-image.jpg');
-          }
+          } */
 
       hr.scrollthingy {
         display: block;
@@ -578,6 +589,9 @@
           .service-icon-apidevelopment {
             background-image: url('/img/services-apidevelopment.svg');
           }
+          .service-icon-cloudhosting {
+            background-image: url('/img/services-cloudhosting.svg');
+          }
       
       .home-about {
         max-width: 1280px;
@@ -601,12 +615,20 @@
 
       .home-contact {
         background-color: #00CCFF;
+        color: #000;
       }
+      .home-contact a,
+      .home-contact a:link,
+      .home-contact a:visited,
+      .home-contact a:active {
+        color: #000;
+      }
+
 
       .site-footer {
         text-align: center;
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-        padding: 1rem 1rem 10rem;
+        padding: 1rem 1rem 33vh;
         background-color: #00CCFF;
       }
         .site-footer a:visited,
@@ -660,9 +682,9 @@
       /* Medium devices (tablets, 768px and up) */
 
       @media (min-width: 768px) {
-        .home-hero-image {
+        /* .home-hero-image {
           height: 67vh;
-        }
+        } */
 
         .home-services-icons {
         }
@@ -817,11 +839,12 @@
     <main>
       <section class="home-hero-section">
         <style type="text/css">
-          #hero-video {
+          #hero-video,
+          #hero-no-video {
             position: relative;
             height: 56.25vw;
           }
-          @media (min-width: 768px) {
+          /* @media (min-width: 768px) {
             #hero-video::before {
               content: "";
               display: block;
@@ -832,9 +855,32 @@
               right: 0;
               z-index: 1;
             }
+          } */
+
+          #hero-no-video {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            z-index: 1;
+
+            transition: opacity 0.55s ease;
+            opacity: 0;
+          }
+          html.video-not-loaded #hero-no-video {
+            opacity: 1;
+          }
+          #hero-no-video svg {
+            fill: #00CCFF;
+            height: 56.25vw;
+            width: 68%;
           }
         </style>
 
+        <div id="hero-no-video">
+          <svg class="sage-digital-logo">
+            <use href="#sage-digital-logo" />
+          </svg>
+        </div>
         <div id="hero-video"></div>
 
         <script src="https://player.vimeo.com/api/player.js"></script>
@@ -858,16 +904,23 @@
           var videoPlayer = new Vimeo.Player('hero-video', options);
 
           videoPlayer.on('play', function () {
-            console.log('Played the video');
+            document.getElementsByTagName("html")[0].classList.remove('video-paused');
+            document.getElementsByTagName("html")[0].classList.remove('video-not-loaded');
+            document.getElementsByTagName("html")[0].classList.add('video-playing');
+          });
+
+          videoPlayer.on('pause', function () {
+            document.getElementsByTagName("html")[0].classList.remove('video-playing');
+            document.getElementsByTagName("html")[0].classList.add('video-paused');
           });
         </script>
 
         <div class="hero-text">
           <div class="marquee-layout marquee-text" id="services">
-            <h3>We Partner With You to Unleash Growth </h3>
+            <h3>Web and Mobile Apps.<br>Custom Software Solutions.</h3>
 
             <p>
-              We are data-driven software creators and experienced strategists. We partner with you to quickly solve problems because we have decades of project delivery experience and a passion for solutions outside the norm.
+              We are data-driven creators and experienced strategists. We partner with you to quickly solve problems with decades of project delivery experience and a passion for solutions outside the norm.
             </p>
 
             <hr class="scrollthingy">
@@ -887,6 +940,7 @@
             <h4 class="service-icon service-icon-seocontent">SEO + Content</h4>
             <h4 class="service-icon service-icon-websites">Websites</h4>
             <h4 class="service-icon service-icon-apidevelopment">API Development</h4>
+            <h4 class="service-icon service-icon-cloudhosting">Cloud Hosting</h4>
           </div>
 
           <div class="columns">
@@ -894,16 +948,12 @@
               <h3>World-Class Senior Software Architects </h3>
 
               <p>
-                Our senior software architects are seasoned professionals who have contributed at the highest organizational levels. 
+                Our project leaders are senior architects, product owners, and CTOs. 
               </p>
 
               <p>
-                Their constant project involvement ensures that every line of code crafted by our teams is coached, reviewed, and refined, so only the best practices make it to production. With this, we increase reliability and shorten development time in every project.
+                Their constant project involvement ensures that every line of code crafted by our teams is coached, reviewed, and refined so only the best practices make it to production. We increase reliability and shorten development time in every project.
               </p>
-
-              <!-- <p>
-                <a href=""> Meet Our Senior Team</a>
-              </p> -->
             </div>
 
             <div class="home-services-right column marquee-text">
@@ -954,6 +1004,55 @@
               <div class="roster-thumbnail-image michelesage"></div>
             </div>
           </div>
+
+          <style type ="text/css">
+            .home-about-roster {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-evenly;
+            }
+              .roster-thumbnail {
+                flex-direction: row;
+                background: #F5F5F5;
+                width: 180px;
+                height: 230px;
+                margin: 1rem;
+                text-align: left;
+                padding: 1.3rem;
+              }
+                .roster-thumbnail h4 {
+                  margin: 0;
+                  font-size: 1.2rem;
+                  font-weight: 400;
+                }
+                .roster-thumbnail p {
+                  font-size: 1rem;
+                  margin-top: 0;
+                  margin-bottom: 1em;
+                }
+                .roster-thumbnail-image {
+                  border: 3px solid #E8E8E8;
+                  border-radius: 50%;
+                  width: 120px;
+                  height: 120px;
+                  margin: 1.5rem auto;
+                  background-color: #aaa;
+                  background-position: 50% 50%;
+                  background-size: cover;
+                }
+                  .roster-thumbnail-image.briansage {
+                    background-image: url('/img/founder-briansage.webp');
+                  }
+                  .no-webp .roster-thumbnail-image.briansage {
+                    background-image: url('/img/founder-briansage.jpg');
+                  }
+                  .roster-thumbnail-image.michelesage {
+                    background-image: url('/img/founder-michelesage.webp');
+                  }
+                  .no-webp .roster-thumbnail-image.michelesage {
+                    background-image: url('/img/founder-michelesage.jpg');
+                  }
+          </style>
         </div>
 
         <div class="home-about-right"></div>
@@ -966,17 +1065,141 @@
           <h3>Ready? Let's Talk</h3>
 
           <p>
-            Want to talk over an idea before you jump in? Advisory sessions are on us, so you can be comfortable before making a commitment.
+            Want to talk over an idea? Advisory sessions are on us to help you explore options.
           </p>
 
+          <style type="text/css">
+            .contact-form {}
+              .contact-form .form-pair {
+                display: block;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+              }
+                .contact-form .columns p.form-pair {
+                  flex: 1;
+                  padding-right: 0.67em;
+                  margin-top: 0;
+                  margin-bottom: 0;
+                }
+                .contact-form .columns p.form-pair:last-child {
+                  padding-right: 0;
+                }
+              .form-pair input {
+                width: 100%;
+                padding: 1.333rem 0.667rem 0.667rem;
+                font: 1.33rem/1 Lato, sans-serif;
+                border: none;
+                border-radius: 3px;
+              }
+              .form-pair input + label {
+                opacity: 0;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 1.333rem 0.75rem 0.667rem;
+                color: #777;
+                font: 1.33rem/1 Lato, sans-serif;
+              }
+              /* .form-pair input:focus, */
+              .form-pair input:not(:placeholder-shown) {
+                padding: 1.5rem 0.667rem 0.5rem;
+              }
+              /* .form-pair input:focus + label, */
+              .form-pair input:not(:placeholder-shown) + label {
+                opacity: 1;
+                padding: 0.5rem 0.75rem 0.667rem;
+                font-size: .67em;
+                color: #444;
+
+                transition: all 0.15s ease-in-out;
+              }
+              button.form-cta-btn {
+                display: inline-block;
+                padding: 0.5rem 2em;
+                font-weight: 600;
+                font-size: 0.9em;
+                color: #fff;
+                background-color: rgba(0,0,0,0.8);
+                border: 1px solid rgba(0,0,0,1);
+                border-radius: 5px;
+
+                transition: color 0.3s ease;
+              }
+                form.active button.form-cta-btn::after,
+                form.active button.form-cta-btn::after {
+                  content: "";
+                  display: inline-block;
+                  position: absolute;
+                  height: 1.75em;
+                  width: 1.75em;
+                  margin: -0.25em 0 -0.25em 0.25em;
+                  background-image: url('/img/loader.svg');
+                  background-size: 42px;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  opacity: 0;
+                }
+                form.active button.form-cta-btn::after,
+                form.active button.form-cta-btn::after {
+                  content: "";
+                  display: inline-block;
+                  position: absolute;
+                  height: 1.75em;
+                  width: 1.75em;
+                  margin: -0.25em 0 -0.25em 0.25em;
+                  background-image: url('/img/loader.svg');
+                  background-size: 42px;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  opacity: 1;
+                }
+
+                .contact-form-success {
+                  background: rgba(255,255,255,.15);
+                  border-radius: 3px;
+                  padding: 1.5rem;
+                  background: rgba(255,255,255,.1);
+                }
+          </style>
+
           <!-- modify this form HTML and place wherever you want your form -->
-          <form id="my-form" action="https://formspree.io/xzbaqnpq" method="POST">
-            <label>Email:</label>
-            <input type="email" name="email" />
-            <label>Message:</label>
-            <input type="text" name="message" />
-            <button id="my-form-button">Submit</button>
-            <p id="my-form-status"></p>
+          <form class="contact-form" id="contact-form" action="https://formspree.io/xzbaqnpq" method="POST">
+            <p class="form-pair">
+              <input type="text" name="Full Name" id="contact-name" placeholder="Full name" required />
+              <label for="contact-name">Full name</label>
+            </p>
+
+            <p class="form-pair">
+              <input type="text" name="Business" id="contact-business" placeholder="Business" />
+              <label for="contact-business">Business</label>
+            </p>
+
+            <div class="columns">
+              <p class="form-pair">
+                <input type="email" name="Email" id="contact-email" placeholder="Email" required />
+                <label for="contact-email">Email</label>
+              </p>
+
+              <p class="form-pair">
+                <input type="phone" name="Phone" id="contact-phone" placeholder="Phone" />
+                <label for="contact-phone">Phone</label>
+              </p>
+            </div>
+
+            <p class="form-pair">
+              <input type="text" name="Please contact me about" id="contact-message" placeholder="Please contact me about..." />
+              <label for="contact-message">Please contact me about...</label>
+            </p>
+
+            <p class="form-cta">
+              <button class="form-cta-btn" id="contact-form-button">Send</button>
+            </p>
+
+            <p id="contact-form-status"></p>
           </form>
         </div>
       </section>
@@ -984,10 +1207,11 @@
 
     <footer class="site-footer">
       <p>
-        &copy; Copyright 2020 Sage Digital, a Colorado LLC |
+        &copy; Copyright 2020 Sage Digital, a Colorado LLC
+         <!-- |
         <a href="/terms-and-conditions.html">Terms and Conditions</a>
         <a href="/licenses.html">Licenses</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a> -->
       </p>
     </footer>
 
@@ -999,15 +1223,15 @@
       window.addEventListener("DOMContentLoaded", function () {
 
         // get the form elements defined in your form HTML above
-        var form = document.getElementById("my-form");
-        var button = document.getElementById("my-form-button");
-        var status = document.getElementById("my-form-status");
+        var form = document.getElementById("contact-form");
+        var button = document.getElementById("contact-form-button");
+        var status = document.getElementById("contact-form-status");
 
         // Success and Error functions for after the form is submitted
         function success() {
           form.reset();
           button.style = "display: none ";
-          status.innerHTML = "Thanks!";
+          status.innerHTML = '<div class="contact-form-success">Thanks!<br><br>Your submission has been sent to <a href="mailto:hello@sagedigital.com">hello@sagedigital.com</a>.<br>We will follow up as soon as possible.</div>';
         }
 
         function error() {
@@ -1015,8 +1239,12 @@
         }
 
         // handle the form submission event
-        form.addEventListener("submit", function (ev) {
-          ev.preventDefault();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          var contactForm = e.target;
+          e.target.classList.add('active');
+
           var data = new FormData(form);
           ajax(form.method, form.action, data, success, error);
         });
