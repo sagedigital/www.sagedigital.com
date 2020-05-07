@@ -210,7 +210,7 @@
           z-index: 2;
         }
 
-      @media (max-width: 767.999px) {
+      @media (max-width: 767px) {
         .site-nav {
           display: block;
           position: absolute;
@@ -467,17 +467,6 @@
             margin-top: -60px;
           }
         }
-        /* .home-hero-image {
-          background: #C6E5EE url('img/home-hero-image.webp') 50% 50% no-repeat;
-          background-size: cover;
-          height: 100vh;
-          min-height: 300px;
-          position: relative;
-          width: 100vw;
-        }
-          .no-webp .home-hero-image {
-            background-image: url('img/home-hero-image.jpg');
-          } */
 
       hr.scrollthingy {
         display: block;
@@ -489,20 +478,21 @@
       }
 
       .home-services {
-        background: #000 url('/img/home-services-image.webp') no-repeat 50% 100%;
-        background-size: cover;
+        background: #444;
+        background-image: linear-gradient(120deg, #36183a, #18293a);
         color: #fff;
         text-align: center;
       }
-        .no-webp .home-services {
-          background-image: url('/img/home-services-image.jpg');
-        }
         .home-services-layout {
           max-width: 1280px;
           margin: auto;
         }
-      .columns {
-      }
+
+        .home-about {}
+          .home-about-left {}
+          .home-about-right { display: none; }
+
+      .columns {}
         .columns .column {}
 
       /* Text Presentation Styles */
@@ -545,7 +535,7 @@
       }
         .home-services-left,
         .home-services-right {
-          max-width: 430px;
+          /* width: 50%; */
           margin: 0 auto 2rem;
         }
           .home-services-left p,
@@ -673,6 +663,17 @@
             margin: auto;
           }
 
+        .home-about {}
+          .home-about-left {
+            flex: 1;
+            width: 50%;
+          }
+          .home-about-right {
+            flex: 1;
+            width: 50%;
+            display: block;
+          }
+
         .columns {
         }
           .columns .column {}
@@ -703,18 +704,28 @@
             margin: auto;
           }
 
-        .columns {}
-          .columns .column {}
+        .columns {
+          display: flex;
+          flex-direction: row;
+        }
+          .columns .column {
+            margin: 1rem 2rem;
+          }
 
 
         .home-services-left,
         .home-services-right {
-          max-width: 430px;
+          max-width: 50%;
           margin: 0 auto 2rem;
         }
+          .home-services-left h3,
+          .home-services-right h3 {
+            font-size: 1.4em;
+            line-height: 1.333;
+          }
           .home-services-left p,
           .home-services-right p {
-            font-size: 1.25em;
+            font-size: 1em;
             line-height: 1.333;
           }
       }
@@ -737,13 +748,24 @@
 
         .home-services,
         .no-webp .home-services {
-          background: #333;
+          background: #000 url('/img/home-services-image.webp') no-repeat 50% 100%;
+          background-size: cover;
+          color: #fff;
+          text-align: center;
         }
+          .no-webp .home-services {
+            background-image: url('/img/home-services-image.jpg');
+          }
           .home-services-layout {
             width: 100%;
             margin: auto;
             padding-right: 2rem;
             padding-left: 2rem;
+          }
+
+        .home-services-icons {}
+          .service-icon {
+            width: 25%;
           }
 
         .columns {
@@ -754,7 +776,6 @@
 
         .home-services-left {
           padding-right: 4rem;
-          max-
         }
         .home-services-right {
           padding-left: 4rem;
@@ -781,6 +802,14 @@
             margin: auto;
             padding-right: 2rem;
             padding-left: 2rem;
+          }
+
+        .home-services-icons {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+          .service-icon {
+            width: 12.5%;
           }
 
         .columns {}
@@ -844,18 +873,6 @@
             position: relative;
             height: 56.25vw;
           }
-          /* @media (min-width: 768px) {
-            #hero-video::before {
-              content: "";
-              display: block;
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              z-index: 1;
-            }
-          } */
 
           #hero-no-video {
             position: absolute;
@@ -966,7 +983,7 @@
               </p>
 
               <p>
-                Years of experience allow us to mentor our own developers to quickly execute steps that create impact first. This practice is at the heart of everything we do – providing early business value and ensuring the continual success of our work. 
+                We mentor our own developers to execute steps that create impact first. This practice is at the heart of everything we do, providing early business value and ensuring the continual success of our work. 
               </p>
 
               <!-- <p>
@@ -1022,11 +1039,11 @@
               }
                 .roster-thumbnail h4 {
                   margin: 0;
-                  font-size: 1.2rem;
+                  font-size: 1.1rem;
                   font-weight: 400;
                 }
                 .roster-thumbnail p {
-                  font-size: 1rem;
+                  font-size: 0.8rem;
                   margin-top: 0;
                   margin-bottom: 1em;
                 }
@@ -1055,7 +1072,7 @@
           </style>
         </div>
 
-        <div class="home-about-right"></div>
+        <div class="home-about-right marquee-text marquee-layout"></div>
       </section>
 
       <section class="home-contact" id="contact">
@@ -1078,14 +1095,22 @@
                 margin-top: 0.5rem;
                 margin-bottom: 0.5rem;
               }
-                .contact-form .columns p.form-pair {
-                  flex: 1;
-                  padding-right: 0.67em;
-                  margin-top: 0;
-                  margin-bottom: 0;
-                }
-                .contact-form .columns p.form-pair:last-child {
-                  padding-right: 0;
+                @media (min-width: 576px) {
+
+                  .contact-form .columns {
+                    display: flex;
+                    flex-direction: row;;
+                  }
+
+                  .contact-form .columns p.form-pair {
+                    flex: 1;
+                    padding-right: 0.67em;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                  }
+                  .contact-form .columns p.form-pair:last-child {
+                    padding-right: 0;
+                  }
                 }
               .form-pair input {
                 width: 100%;
