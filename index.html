@@ -967,7 +967,8 @@
 
           var videoPlayer = new Vimeo.Player('hero-video', options);
 
-          videoPlayer.on('play', function () {
+          // videoPlayer.on('play', function () {
+          videoPlayer.play().then(function () {
             document.getElementsByTagName("html")[0].classList.remove('video-paused');
             document.getElementsByTagName("html")[0].classList.remove('video-not-loaded');
             document.getElementsByTagName("html")[0].classList.add('video-playing');
