@@ -17,11 +17,13 @@
 
     <!-- Android -->
     <link rel="shortcut icon" href=“/img/favicon-196.png" sizes="196x196">
+    <meta name="theme-color" content="#40004d">
 
     <!-- iOS -->
     <link rel="apple-touch-icon" href="/img/favicon-120.png" sizes="120x120">
     <link rel="apple-touch-icon" href="/img/favicon-152.png" sizes="152x152">
     <link rel="apple-touch-icon" href="/img/favicon-180.png" sizes="180x180">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Social -->
     <meta property="fb:app_id"           content="617981982394518" />
@@ -68,15 +70,16 @@
     <script>
       document.documentElement.classList.remove("no-js");
 
-      window.onscroll = function() {
-        var heroVideo = document.querySelector('#hero-video');Parallax = document.querySelector('#heroVideo');
-        var targetHeight = (heroVideo.offsetHeight / 2 || 60);Parallax = document.querySelector('#heroVideo');
+      var heroVideo = document.querySelector('#hero-video');
+      var targetHeight = (heroVideo.offsetHeight / 2 || 60);
+      window.addEventListener('scroll', function (e) {
+
         if (window.pageYOffset > targetHeight) {
           document.getElementsByTagName("html")[0].classList.add('scrolled');
         } else {
           document.getElementsByTagName("html")[0].classList.remove('scrolled');
         }
-      }
+      }.bind(this));
     </script>
 
     <!-- Google Fonts -->
@@ -248,7 +251,9 @@
       }
 
       h3 {
-        font-size: 2rem;
+        font-size: 2.6rem;
+        font-weight: 100;
+        opacity: 0.8;
       }
         h3 + p {
           margin-top: -1rem;
@@ -371,7 +376,7 @@
               margin-bottom: 5px;
               position: relative;
 
-              background: #333;
+              background: #fff;
               border-radius: 3px;
 
               z-index: 1;
@@ -562,10 +567,43 @@
         position: relative;
         padding-top: 3rem;
         padding-bottom: 3rem;
-        margin-top: -50px;
+        margin-top: -40px;
         margin-bottom: -50px;
         z-index: 2;
       }
+        .hero-text h1 {
+          font-size: 2.2rem;
+          line-height: 1;
+          margin-bottom: 1.5em;
+        }
+        .hero-text p {}
+      @media (min-width: 768px) {
+        .hero-text h1 {}
+        .hero-text p {
+          width: 73%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .hero-text h1 {}
+        .hero-text p {
+          width: 73%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .hero-text h1 {}
+        .hero-text p {
+          width: 73%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
 
       .home-services {
         background: #444;
@@ -594,8 +632,11 @@
         max-width: 40rem;
         margin-left: auto;
         margin-right: auto;
-        padding: 1.5rem 4rem;
+        padding: 1.5rem 2rem;
       }
+      /* .marquee-layout {
+        padding: 1.5rem 4rem;
+      } */
 
       .marquee-text {
         text-align: center;
@@ -604,13 +645,9 @@
         .marquee-text h2:first-child {
           margin-top: 0;
         }
-        .marquee-text p {
-          width: 73%;
-          margin-left: auto;
-          margin-right: auto;
-        }
         .marquee-text p.subhead {
           width: inherit;
+          margin-top: -2em;
         }
 
       .home-services {
@@ -1038,17 +1075,21 @@
     <main>
       <section class="home-hero-section">
         <style type="text/css">
+          .hero-video-section {
+          }
           .hero-video-frame {
             position: relative;
             overflow: hidden;
-            padding-top: 50px;
-            height: calc(50px + 56.25vw);
+            padding-top: 59px;
+            height: calc(59px + 56.25vw);
+            background: rgb(64, 0, 77);
           }
 
           #hero-video,
           #hero-no-video {
             position: relative;
             height: 56.25vw;
+            background: white;
           }
 
           #hero-no-video {
@@ -1548,7 +1589,6 @@
       new Parallax(document.querySelector('#hero-video'), .4);
       new Parallax(document.querySelector('#hero-no-video'), .4);
       new Parallax(document.querySelector('#hero-video-frame'), .2);
-      // new Parallax(document.querySelector('#hero-text'), .2);
     </script>
   </body>
 </html>
