@@ -17,11 +17,13 @@
 
     <!-- Android -->
     <link rel="shortcut icon" href=“/img/favicon-196.png" sizes="196x196">
+    <meta name="theme-color" content="#40004d">
 
     <!-- iOS -->
     <link rel="apple-touch-icon" href="/img/favicon-120.png" sizes="120x120">
     <link rel="apple-touch-icon" href="/img/favicon-152.png" sizes="152x152">
     <link rel="apple-touch-icon" href="/img/favicon-180.png" sizes="180x180">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Social -->
     <meta property="fb:app_id"           content="617981982394518" />
@@ -42,8 +44,8 @@
     <meta property="og:description"      content="We are data-driven creators and experienced strategists. We partner with you to quickly solve problems with decades of project delivery experience and a passion for solutions outside the norm." />
 
     <!-- Async stylesheet loader -->
-    <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
+    <!-- <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+    <!-- <noscript><link rel="stylesheet" href="/css/styles.css"></noscript> -->
 
     <!-- Google Tag Manager -->
     <script>
@@ -68,17 +70,16 @@
     <script>
       document.documentElement.classList.remove("no-js");
 
-      window.onscroll = function() {
-        var heroVideo = document.querySelector('#hero-video');
-
-        var targetHeight = (heroVideo.offsetHeight / 2 || 60);
+      var heroVideo = document.querySelector('#hero-video');
+      var targetHeight = (heroVideo.offsetHeight / 2 || 60);
+      window.addEventListener('scroll', function (e) {
 
         if (window.pageYOffset > targetHeight) {
           document.getElementsByTagName("html")[0].classList.add('scrolled');
         } else {
           document.getElementsByTagName("html")[0].classList.remove('scrolled');
         }
-      }
+      }.bind(this));
     </script>
 
     <!-- Google Fonts -->
@@ -176,48 +177,151 @@
     </style>
 
     <style type="text/css">
-      /* Above the Fold styles for speed */
-
       /* Default: Extra small devices (portrait phones, less than 576px) */
+
+      /* Basic Elements
+      // --------------------------------------------------------------------- */
 
       html,
       body {
         border: 0;
         padding: 0;
         margin: 0;
-        font-size: 15px;
-        line-height: 1.25;
+        font-size: 16px;
+        line-height: 1.5;
         font-family: Lato, sans-serif;
+        background: rgb(64, 0, 77);
       }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      :focus {
+        outline: none;
+      }
+      ::-moz-focus-inner {
+        border: 0;
+      }
+
+      ::selection {
+        background-color: #00CCFF;
+        color: #000;
+      }
+
+      main{
+        background: white;
+      }
+
+      a,
+      a:visited,
+      a:link,
+      a:active {
+        color: #00CCFF;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: Montserrat, sans-serif;
+        font-weight: 600;
+        line-height: 1.1;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+        font-weight: 100;
+        opacity: 0.8;
+      }
+        h1 + .subhead {
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          opacity: 0.5;
+          font-weight: 100;
+          margin-top: -1.5em;
+        }
+
+      h2 {
+        color: #00CCFF;
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+
+      h3 {
+        font-size: 2.6rem;
+        font-weight: 100;
+        opacity: 0.8;
+      }
+        h3 + p {
+          margin-top: -1rem;
+        }
+
+      p {
+        font-weight: 100;
+      }
+        p.subhead {
+          width: inherit;
+        }
+
+
+
+      /* Assets
+      // --------------------------------------------------------------------- */
 
       .svg-symbol {
         display: none;
       }
 
 
+      /* Form Styles
+      // --------------------------------------------------------------------- */
+
+      a.button-cta,
+      button.button-cta,
+      input[type="button"].button-cta {
+        font-family: Montserrat, sans-serif;
+        font-weight: 600;
+        font-size: 0.84375rem;
+        background-color: #19171D;
+        display: inline-block;
+        border-radius: 0.3em;
+        padding: 1em 2.5em;
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0 0.133em 0 #00CCFF;
+      }
+
+
+      /* Site Components
+      // --------------------------------------------------------------------- */
+
+
+
+
       /* Layout Elements */
       /* ------------------------------------------------------------------- */
 
       .site-header-layout {
-        background-color: rgba(247,246,246,0.001);
-        box-shadow: 0 0px 5px rgba(0,0,0,0.001);
-        height: 54px;
+        background-image: linear-gradient(178.5deg,
+          rgba(64, 0, 77, 1),
+          rgba(64, 0, 77, 1) 65%,
+          rgba(0,0,0,0.2) 65.5%,
+          rgba(0,0,0,0.2) 70%,
+          transparent 70.5%
+        );
+        height: 100px;
         position: fixed;
         width: 100%;
         z-index: 5;
 
         transition: all 1s;
       }
-        html.scrolled .site-header-layout,
-        html.video-paused .site-header-layout {
-          background-color: rgba(247,246,246,0.95);
-          box-shadow: 0 0px 5px rgba(0,0,0,0.2);
-          height: 54px;
-          position: fixed;
-        }
 
       .header-logo {
-        margin: 1.25em;
+        margin: 1.5em;
         width: 40vw;
       }
         .header-logo .sage-digital-logo {
@@ -272,7 +376,7 @@
               margin-bottom: 5px;
               position: relative;
 
-              background: #333;
+              background: #fff;
               border-radius: 3px;
 
               z-index: 1;
@@ -361,6 +465,16 @@
       }
 
       @media (min-width: 768px) {
+        .site-header-layout {
+          background-image: linear-gradient(178.5deg,
+            rgba(64, 0, 77, 1),
+            rgba(64, 0, 77, 1) 65%,
+            rgba(0,0,0,0.2) 65.5%,
+            rgba(0,0,0,0.2) 70%,
+            transparent 70.5%
+          );
+          height: 100px;
+        }
         .site-nav {}
           #site-nav-toggle {}
             #site-nav-toggle input[type="checkbox"],
@@ -396,7 +510,7 @@
               .site-nav ul li a:link,
               .site-nav ul li a:visited {
                 display: block;
-                padding: 0.25rem 1em;
+                padding: 0.18rem 1em;
                 font-weight: 600;
                 font-family: Montserrat, sans-serif;
                 text-decoration: none;
@@ -413,13 +527,13 @@
               .site-nav ul li a.cta:link,
               .site-nav ul li a.cta:visited {
                 display: block;
-                padding: 0.5rem 2em;
+                padding: 0.45rem 1.8em;
                 margin: -0.25rem 1em;
                 font-weight: 600;
                 font-size: 0.9em;
-                color: #fff;
-                background-color: rgba(0,0,0,0.8);
-                border: 1px solid rgba(0,0,0,1);
+                color: #000;
+                background-color: rgba(255,255,255,1);
+                border: 1px solid rgba(255,255,255,1);
                 border-radius: 5px;
 
                 transition: color 0.3s ease;
@@ -429,90 +543,76 @@
               .site-nav ul li a.cta:visited:hover {
                 color: #00CCFF;
               }
-
-              html.video-paused .site-nav ul li a,
-              html.video-paused .site-nav ul li a:link,
-              html.video-paused .site-nav ul li a:visited,
-              html.scrolled .site-nav ul li a,
-              html.scrolled .site-nav ul li a:link,
-              html.scrolled .site-nav ul li a:visited {
-                color: #000;
-              }
-              html.video-paused .site-nav ul li a:hover,
-              html.video-paused .site-nav ul li a:link:hover,
-              html.video-paused .site-nav ul li a:visited:hover,
-              html.scrolled .site-nav ul li a:hover,
-              html.scrolled .site-nav ul li a:link:hover,
-              html.scrolled .site-nav ul li a:visited:hover {
-                color: #00CCFF;
-              }
-              html.video-paused .site-nav ul li a.cta,
-              html.video-paused .site-nav ul li a.cta:link,
-              html.video-paused .site-nav ul li a.cta:visited,
-              html.scrolled .site-nav ul li a.cta,
-              html.scrolled .site-nav ul li a.cta:link,
-              html.scrolled .site-nav ul li a.cta:visited {
-                display: block;
-                padding: 0.5rem 2em;
-                margin: -0.25rem 1em;
-                font-weight: 600;
-                font-size: 0.9em;
-                color: #fff;
-                background-color: rgba(0,0,0,0.8);
-                border: 1px solid rgba(0,0,0,1);
-                border-radius: 5px;
-
-                transition: color 0.3s ease;
-              }
-              html.video-paused .site-nav ul li a.cta:hover,
-              html.video-paused .site-nav ul li a.cta:link:hover,
-              html.video-paused .site-nav ul li a.cta:visited:hover,
-              html.scrolled .site-nav ul li a.cta:hover,
-              html.scrolled .site-nav ul li a.cta:link:hover,
-              html.scrolled .site-nav ul li a.cta:visited:hover {
-                color: #00CCFF;
-              }
       }
 
-      .home-hero {
-        clear: both;
-        text-align: center;
+      .hero-text {
+        background: linear-gradient(178.5deg,
+            transparent,
+            transparent 37px,
+            rgba(0,0,0,0.1) 39.5px,
+            rgba(0,0,0,0.1) 40px,
+            rgba(255, 255, 255, 1) 41px,
+            rgba(255, 255, 255, 1), 51%,
+            transparent 51%
+          ),
+          linear-gradient(-1.5deg,
+            transparent,
+            transparent 37px,
+            rgba(0,0,0,0.4) 39.5px,
+            rgba(0,0,0,0.4) 50px,
+            rgba(255, 255, 255, 1) 51px,
+            rgba(255, 255, 255, 1), 51%,
+            transparent 51%
+          );
+        position: relative;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        margin-top: -40px;
+        margin-bottom: -50px;
+        z-index: 2;
+      }
+        .hero-text h1 {
+          font-size: 2.2rem;
+          line-height: 1;
+          margin-bottom: 1.5em;
+        }
+        .hero-text p {}
+      @media (min-width: 768px) {
+        .hero-text h1 {}
+        .hero-text p {
+          width: 73%;
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
 
-        @media (min-width: 768px) {
-          .hero-text {
-            background: #fff;
-            box-shadow: 0 -2px 7px rgba(0,0,0,0.07);
-            position: relative;
-            margin-top: -60px;
-          }
+      @media (min-width: 992px) {
+        .hero-text h1 {}
+        .hero-text p {
+          width: 73%;
+          margin-left: auto;
+          margin-right: auto;
         }
-
-        .hero-text .marquee-text h1 {
-          font-size: 1.6em;
-          margin-bottom:
-        }
-        @media (min-width: 768px) {
-          .hero-text .marquee-text h1 {
-            font-size: 1.6em;
-            margin-bottom:
-          }
-        }
-
-      hr.scrollthingy {
-        display: block;
-        width: 10rem;
-        height: .333rem;
-        background: #000;
-        border-radius: 0.2rem;
-        margin: 1.5rem auto;
       }
+
+      @media (min-width: 1200px) {
+        .hero-text h1 {}
+        .hero-text p {
+          width: 73%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
 
       .home-services {
         background: #444;
-        background-image: linear-gradient(120deg, #36183a, #18293a);
+        background-image: linear-gradient(120deg, rgb(64, 0, 77), rgb(0, 82, 102));
         color: #fff;
         text-align: center;
+        position: relative;
+        z-index: 1;
+        padding-top: 3rem;
       }
         .home-services-layout {
           max-width: 1280px;
@@ -529,39 +629,25 @@
       /* Text Presentation Styles */
 
       .marquee-layout {
-        max-width: 57rem;
+        max-width: 40rem;
         margin-left: auto;
         margin-right: auto;
-        padding: 1.5rem 4rem;
+        padding: 1.5rem 2rem;
       }
+      /* .marquee-layout {
+        padding: 1.5rem 4rem;
+      } */
 
       .marquee-text {
         text-align: center;
       }
-        .marquee-text h2 {
-          font-size: 1.333rem;
-          color: #00CCFF;
+        .marquee-text h1:first-child,
+        .marquee-text h2:first-child {
+          margin-top: 0;
         }
-          .marquee-text h2:first-child {
-            margin-top: 0;
-          }
-        .marquee-text h1,
-        .marquee-text h3 {
-          font-size: 2rem;
-        }
-          .marquee-text h1:first-child,
-          .marquee-text h3:first-child {
-            margin-top: 0;
-          }
-        .marquee-text p {
-          font-size: 1.333rem;
-        }
-        .marquee-text h1 + p,
-        .marquee-text h3 + p {
-          margin-top: -1rem;
-        }
-        .marquee-text hr:last-child {
-          margin-bottom: 0
+        .marquee-text p.subhead {
+          width: inherit;
+          margin-top: -2em;
         }
 
       .home-services {
@@ -667,7 +753,7 @@
       @media (min-width: 576px) {
         .header-logo {
           width: 10rem;
-          margin: 1.2rem;
+          margin: 1.5rem;
         }
           .header-logo .sage-digital-logo {
             position: absolute;
@@ -695,6 +781,7 @@
           .home-services-layout {
             max-width: 1280px;
             margin: auto;
+            padding-top: 3rem;
           }
 
         .home-about {}
@@ -717,12 +804,12 @@
       /* Medium devices (tablets, 768px and up) */
 
       @media (min-width: 768px) {
-        /* .home-hero-image {
-          height: 67vh;
-        } */
-
-        .home-services-icons {
+        .header-logo {
+          width: 10rem;
+          margin: 1.5rem;
         }
+
+        .home-services-icons {}
 
         .home-services {
           background: #000 url('/img/home-services-image.webp') no-repeat 50% 100%;
@@ -768,10 +855,7 @@
       /* Large devices (desktops, 992px and up) */
 
       @media (min-width: 992px) {
-        .header-logo {
-          width: 10rem;
-          margin: 1.2rem;
-        }
+        .header-logo {}
           .header-logo .sage-digital-logo {
             position: absolute;
             fill: #00CCFF;
@@ -868,8 +952,7 @@
     <span id="home"></span>
 
     <!-- SVG Symbols for re-use -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill-rule="evenodd"
-      stroke-linejoin="round" stroke-miterlimit="2" class="svg-symbol">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="svg-symbol">
       <symbol id="sage-digital-logo" viewBox="0 0 198 19">
         <path
           d="M2.507 14.218c.505.26 1.054.488 1.65.68 1.073.346 2.146.52 3.22.52 1.193 0 2.076-.178 2.647-.532s.856-.826.856-1.415a1.35 1.35 0 0 0-.506-1.077c-.337-.285-.77-.515-1.297-.688s-1.242-.363-2.142-.57l-3.4-.986a5.53 5.53 0 0 1-2.271-1.583C.63 7.838.315 6.87.315 5.658c0-1.055.285-2.01.856-2.868S2.603 1.254 3.754.753 6.3 0 7.972 0c1.16 0 2.292.138 3.4.415 1.103.276 2.07.673 2.898 1.19L11.705 4.17c-1.253-.53-2.506-.796-3.76-.796-1.177 0-2.047.2-2.61.57s-.843.882-.843 1.505.324 1.086.973 1.39 1.64.6 2.972.895l3.4.987a5.62 5.62 0 0 1 2.271 1.557c.63.71.947 1.67.947 2.88 0 1.038-.3 1.985-.87 2.842s-1.45 1.535-2.61 2.037-2.57.753-4.23.753c-1.437 0-2.825-.195-4.166-.584C1.868 17.825.807 17.33 0 16.725l2.507-2.507zm47.178-9.77c-.966-.578-2.046-.867-3.24-.867-1.16 0-2.19.242-3.09.726a5.22 5.22 0 0 0-2.102 2.051c-.502.882-.753 1.894-.753 3.036 0 1.125.25 2.13.753 3.01a5.33 5.33 0 0 0 2.089 2.064c.89.493 1.908.74 3.05.74 1.21 0 2.3-.26 3.27-.778V9.1h3.84v7.37c-.986.744-2.128 1.315-3.426 1.713s-2.604.597-3.92.597c-1.886 0-3.58-.402-5.087-1.207s-2.686-1.92-3.542-3.348-1.285-3.04-1.285-4.84.428-3.413 1.285-4.84S39.577 2.01 41.1 1.207 44.335 0 46.238 0c1.592 0 3.037.268 4.335.805a8.93 8.93 0 0 1 1.779.978L49.685 4.45zM128.6 9.187h3.2v7.28c-.94.748-2.035 1.322-3.288 1.723s-2.54.6-3.863.6c-1.86 0-3.54-.405-5.037-1.214s-2.67-1.927-3.523-3.353-1.28-3.036-1.28-4.83.426-3.4 1.28-4.828a8.99 8.99 0 0 1 3.536-3.353C121.14.405 122.833 0 124.712 0c1.532 0 2.923.252 4.176.757s2.306 1.244 3.158 2.218l-2.14 2.088a6.86 6.86 0 0 0-5.037-2.088c-1.288 0-2.432.27-3.432.81s-1.783 1.297-2.35 2.27-.848 2.088-.848 3.34c0 1.218.283 2.315.848 3.29s1.35 1.74 2.35 2.297 2.136.835 3.406.835c1.427 0 2.68-.313 3.758-.94v-5.69zM106.235.26h3.392v18.27h-3.392V.26zm31.605 0h3.393v18.27h-3.393V.26zm46.847 0h3.393V15.66h9.552v2.87h-12.945V.26zm-33.25 2.87h-6.055V.26h15.503v2.87h-6.055V18.53h-3.393V3.132zM83.11.26h7.987c1.948 0 3.68.378 5.193 1.135s2.688 1.827 3.523 3.2 1.253 2.98 1.253 4.79-.417 3.406-1.253 4.8-2.01 2.453-3.523 3.2-3.245 1.135-5.193 1.135H83.11V.26zm92.31 14.04h-9.135l-1.8 4.228h-3.497L169.2.26h3.34l8.247 18.27h-3.55l-1.827-4.228zM35.165 15.424l-3.05 3.05-1.606-3.887h-8.435l-1.61 3.893h-4.31L24.255.31h4.153l6.757 15.113zM70.556.31l-3.374 3.375h-6.148V7.63h8.435v3.27h-8.435v4.204h9.89v3.374H56.856V.31h13.7zM90.94 15.66c1.34 0 2.518-.257 3.536-.77s1.8-1.244 2.35-2.192.822-2.05.822-3.302-.274-2.353-.822-3.3-1.33-1.68-2.35-2.192-2.196-.77-3.536-.77h-4.437V15.66h4.437zm83.36-4.02l-3.445-7.986-3.42 7.986h6.864zm-145.114-.246l-2.88-6.956-2.88 6.956h5.762z"
@@ -877,6 +960,84 @@
         />
       </symbol>
     </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" class="svg-symbol">
+      <symbol id="loading-indicator" viewBox="0 0 100 100">
+        <g transform="rotate(0 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s"
+              repeatCount="indefinite"></animate>
+          </rect>
+        </g>
+        <g transform="rotate(30 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8333333333333334s"
+              repeatCount="indefinite"></animate>
+          </rect>
+        </g>
+        <g transform="rotate(60 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite">
+            </animate>
+          </rect>
+        </g>
+        <g transform="rotate(90 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6666666666666666s"
+              repeatCount="indefinite"></animate>
+          </rect>
+        </g>
+        <g transform="rotate(120 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5833333333333334s"
+              repeatCount="indefinite"></animate>
+          </rect>
+        </g>
+        <g transform="rotate(150 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite">
+            </animate>
+          </rect>
+        </g>
+        <g transform="rotate(180 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4166666666666667s"
+              repeatCount="indefinite"></animate>
+          </rect>
+        </g>
+        <g transform="rotate(210 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.3333333333333333s"
+              repeatCount="indefinite"></animate>
+          </rect>
+        </g>
+        <g transform="rotate(240 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite">
+            </animate>
+          </rect>
+        </g>
+        <g transform="rotate(270 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.16666666666666666s"
+              repeatCount="indefinite"></animate>
+          </rect>
+        </g>
+        <g transform="rotate(300 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.08333333333333333s"
+              repeatCount="indefinite"></animate>
+          </rect>
+        </g>
+        <g transform="rotate(330 50 50)">
+          <rect x="49.5" y="37" rx="0" ry="0" width="1" height="6" fill="#00ccff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite">
+            </animate>
+          </rect>
+        </g>
+        </symbol>
+    </svg>
+
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZHNGMR" height="0" width="0"
@@ -915,10 +1076,21 @@
     <main>
       <section class="home-hero-section">
         <style type="text/css">
+          .hero-video-section {
+          }
+          .hero-video-frame {
+            position: relative;
+            overflow: hidden;
+            padding-top: 59px;
+            height: calc(59px + 56.25vw);
+            background: rgb(64, 0, 77);
+          }
+
           #hero-video,
           #hero-no-video {
             position: relative;
             height: 56.25vw;
+            background: white;
           }
 
           #hero-no-video {
@@ -933,19 +1105,40 @@
           html.video-not-loaded #hero-no-video {
             opacity: 1;
           }
-          #hero-no-video svg {
+          #hero-no-video svg.sage-digital-logo {
             fill: #00CCFF;
             height: 56.25vw;
             width: 68%;
+            position: absolute;
+            left: 50%;
+            margin-left: -34%;
+          }
+          #hero-no-video svg.loading-indicator {
+            margin: auto;
+            background: none;
+            display: block;
+            position: absolute;
+            shape-rendering: auto;
+            width: 14%;
+            position: absolute;
+            left: 50%;
+            margin-left: -7%;
+            margin-top: 20vw;
+            height: 36.25vw;
           }
         </style>
 
-        <div id="hero-no-video">
-          <svg class="sage-digital-logo">
-            <use href="#sage-digital-logo" />
-          </svg>
+        <div class="hero-video-frame" id="hero-video-frame">
+          <div id="hero-no-video">
+            <svg class="sage-digital-logo">
+              <use href="#sage-digital-logo" />
+            </svg>
+            <svg class="loading-indicator">
+              <use href="#loading-indicator">
+            </svg>
+          </div>
+          <div id="hero-video"></div>
         </div>
-        <div id="hero-video"></div>
 
         <script src="https://player.vimeo.com/api/player.js"></script>
 
@@ -980,15 +1173,17 @@
           });
         </script>
 
-        <div class="hero-text">
+        <div class="hero-text" id="hero-text">
           <div class="marquee-layout marquee-text" id="services">
-            <h1>Web, Mobile, and Custom Software Solutions</h1>
+            <h1>Digital Solutions Agency</h1>
 
-            <p>
-              We are data-driven creators and experienced strategists. We partner with you to quickly solve problems with decades of project delivery experience and a passion for solutions outside the norm.
+            <p class="subhead">
+              We create results that transform brands
             </p>
 
-            <hr class="scrollthingy">
+            <p>
+              We are a team of data-driven creators and experienced strategists. We partner to quickly solve problems with decades of software delivery experience and a passion for solutions outside the norm.
+            </p>
           </div>
         </div>
       </section>
@@ -1357,6 +1552,44 @@
       window.addEventListener("load", function () {
         var uxeffectsScript = setTimeout(asyncLoadScript, 1, '/js/uxeffects.js');
       });
+    </script>
+
+    <script>
+      // Parallax
+      var Parallax = (function () {
+        var Parallax = function (el, displace) {
+          this.el = el;
+          this.displace = displace;
+
+          this.init()
+        };
+
+        Parallax.prototype.init = function () {
+          window.addEventListener('scroll', function (e) {
+            this.handleScrolling();
+          }.bind(this));
+        };
+
+        Parallax.prototype.setPosition = function () {
+          if (window.pageYOffset !== undefined) {
+            return window.pageYOffset;
+          } else {
+            return (document.documentElement || document.body.parentNode || document.body).scrollTop;
+          }
+        };
+
+        Parallax.prototype.handleScrolling = function () {
+          if (typeof window.orientation !== 'undefined') { return; }
+          var scrollPosition = this.setPosition();
+          this.el.style.transform = "translate3d(0px, " + (scrollPosition * this.displace) + "px, 0px)";
+        };
+
+        return Parallax;
+      })();
+
+      new Parallax(document.querySelector('#hero-video'), .4);
+      new Parallax(document.querySelector('#hero-no-video'), .4);
+      new Parallax(document.querySelector('#hero-video-frame'), .2);
     </script>
   </body>
 </html>
