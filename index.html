@@ -36,8 +36,8 @@
     <meta property="og:image:width"      content="1200" />
     <meta property="og:image:height"     content="630" />
     <meta property="og:image:type"       content="image/png" />
-    <meta property="og:video:url"        content="https://player.vimeo.com/video/414576688?autoplay=1">
-    <meta property="og:video:secure_url" content="https://player.vimeo.com/video/414576688?autoplay=1">
+    <meta property="og:video:url"        content="https://www.sagedigital.com/video/sage-digital-hero@720p25-1250kbps.mp4">
+    <meta property="og:video:secure_url" content="https://www.sagedigital.com/video/sage-digital-hero@720p25-1250kbps.mp4">
     <meta property="og:video:type"       content="text/html">
     <meta property="og:video:width"      content="1280">
     <meta property="og:video:height"     content="720">
@@ -67,7 +67,7 @@
     </script>
     
     <!-- CSS-based display -->
-    <script defer>
+    <!-- <script defer>
       document.documentElement.classList.remove("no-js");
 
       var heroVideo = document.querySelector('#hero-video');
@@ -80,7 +80,7 @@
           document.getElementsByTagName("html")[0].classList.remove('scrolled');
         }
       }.bind(this));
-    </script>
+    </script> -->
 
     <!-- Google Fonts -->
     <style type="text/css">
@@ -949,6 +949,7 @@
 
     <!-- Vimeo Player -->
     <script defer>
+      /*
       var goVimeo = function(){
         var options = {
           id: '414576688',
@@ -985,6 +986,7 @@
       v.src = 'https://player.vimeo.com/api/player.js';
       v.onload = goVimeo;
       s.parentNode.insertBefore(v, s);
+      */
     </script>
   </head>
 
@@ -1177,7 +1179,25 @@
               <use href="#loading-indicator">
             </svg>
           </div>
-          <div id="hero-video"></div>
+
+          <video id="hero-video" autoplay loop muted playsinline preload>
+            <source src="/video/sage-digital-hero@720p25-1250kbps.mp4" type="video/mp4">
+          </video>
+
+          <script defer>
+            var video = document.getElementById('hero-video');
+
+            video.addEventListener('play', function(event) {
+              document.getElementsByTagName("html")[0].classList.remove('video-paused');
+              document.getElementsByTagName("html")[0].classList.remove('video-not-loaded');
+              document.getElementsByTagName("html")[0].classList.add('video-playing');
+            });
+
+            video.addEventListener('pause', function(event) {
+              document.getElementsByTagName("html")[0].classList.remove('video-playing');
+              document.getElementsByTagName("html")[0].classList.add('video-paused');
+            });
+          </script>
         </div>
 
         <div class="hero-text" id="hero-text">
@@ -1486,7 +1506,7 @@
         |
         </li><a href="https://www.linkedin.com/company/sagedigital-com/" title="Sage Digital LinkedIn" target="_blank">LinkedIn</a>
         </li><a href="https://github.com/sagedigital" title="Sage Digital GitHub" target="_blank">GitHub</a>
-        </li><a href="https://vimeo.com/sagedigital" title="Sage Digital Vimeo" target="_blank">Vimeo</a>
+        <!-- </li><a href="https://vimeo.com/sagedigital" title="Sage Digital Vimeo" target="_blank">Vimeo</a> -->
       </p>
       <p><a href="https://sagedigital.freshdesk.com/" target="_blank">Login to Support</a></p>
     </footer>
