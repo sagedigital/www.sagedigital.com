@@ -1,6 +1,6 @@
 // Smooth scroll for anchor links
 // Adapted from https://medium.com/@gurjitmehta/smooth-scroll-with-javascript-571283e9a3cd
-const easeInCubic = function (t) { return t * t * t }
+const easeInCubic = (t) => { return t * t * t }
 
 const scrollToElem = (startTime, currentTime, duration, scrollEndElemTop, startScrollOffset) => {
   const runtime = currentTime - startTime;
@@ -20,25 +20,30 @@ const scrollToElem = (startTime, currentTime, duration, scrollEndElemTop, startS
   }
 }
 
-var listenForUXEffectClick = function (e) {
-  if (e.target.matches('*[data-uxeffect]')) {
-    e.preventDefault();
+var listenForUXEffectClick = (e) => {
+  console.log("e.target: ", e.target);
 
-    var scrollElemId = e.target.href.split('#')[1];
+  if (e.target.matches('*[data-uxeffect="smoothscroll"],*[data-uxeffect="smoothscroll"] *')) {
 
-    var scrollEndElem = document.getElementById(scrollElemId);
+    var anchor = e.target.closest('[href]');
 
-    var anim = requestAnimationFrame((timestamp) => {
-      var stamp = timestamp || new Date().getTime();
-      var duration = 600;
-      var start = stamp;
+    if(anchor) {
+      e.preventDefault();
 
-      var startScrollOffset = window.pageYOffset;
-      var headerBarHeight = document.querySelector('.site-header-layout').offsetHeight;
-      var scrollEndElemTop = scrollEndElem.getBoundingClientRect().top - headerBarHeight;
+      var scrollElemId = anchor.href.split('#')[1];
+      var scrollEndElem = document.getElementById(scrollElemId);
+      var anim = requestAnimationFrame((timestamp) => {
+        var stamp = timestamp || new Date().getTime();
+        var duration = 600;
+        var start = stamp;
 
-      scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
-    })
+        var startScrollOffset = window.pageYOffset;
+        var headerBarHeight = document.querySelector('.site-header-layout').offsetHeight;
+        var scrollEndElemTop = scrollEndElem.getBoundingClientRect().top - headerBarHeight;
+
+        scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
+      });
+    }
   }
 }
 

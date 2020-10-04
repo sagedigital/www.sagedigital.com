@@ -179,11 +179,28 @@
     <style type="text/css">
       /* Default: Extra small devices (portrait phones, less than 576px) */
 
+      /* Keyframes
+      // --------------------------------------------------------------------- */
+
+      @keyframes fadeIn {
+        0%, 35% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+
       /* Basic Elements
       // --------------------------------------------------------------------- */
 
       html,
       body {
+        animation-delay: 0s;
+        animation-duration: 500ms;
+        animation-iteration-count: 1;
+        animation-name: fadeIn;
         border: 0;
         padding: 0;
         margin: 0;
@@ -287,7 +304,7 @@
         font-size: 0.84375rem;
         background-color: #19171D;
         display: inline-block;
-        border-radius: 0.3em;
+        border-radius: 0.2em;
         padding: 1em 2.5em;
         color: #fff;
         text-decoration: none;
@@ -307,12 +324,12 @@
       .site-header-layout {
         background-image: linear-gradient(178.5deg,
           rgba(64, 0, 77, 1),
-          rgba(64, 0, 77, 1) 65%,
-          rgba(0,0,0,0.2) 65.5%,
-          rgba(0,0,0,0.2) 70%,
-          transparent 70.5%
+          rgba(64, 0, 77, 1) 70%,
+          rgba(0,0,0,0.2) 70.5%,
+          rgba(0,0,0,0.2) 75%,
+          transparent 75.5%
         );
-        height: 100px;
+        height: 105px;
         position: fixed;
         width: 100%;
         z-index: 5;
@@ -416,9 +433,9 @@
             list-style: none;
           }
             .site-nav ul li {
-              font-weight: 600;
+              font-weight: 400;
               font-size: 0.84375;
-              font-family: Montserrat, sans-serif;
+              /* font-family: Montserrat, sans-serif; */
               padding: 0.25rem 0;
             }
               .site-nav ul li a,
@@ -429,7 +446,7 @@
                 margin: 0.25rem 0;
                 font-weight: 600;
                 font-size: 1.25rem;
-                font-family: Montserrat, sans-serif;
+                /* font-family: Montserrat, sans-serif; */
                 text-decoration: none;
                 color: #000;
 
@@ -465,16 +482,7 @@
       }
 
       @media (min-width: 768px) {
-        .site-header-layout {
-          background-image: linear-gradient(178.5deg,
-            rgba(64, 0, 77, 1),
-            rgba(64, 0, 77, 1) 65%,
-            rgba(0,0,0,0.2) 65.5%,
-            rgba(0,0,0,0.2) 70%,
-            transparent 70.5%
-          );
-          height: 100px;
-        }
+        .site-header-layout {}
         .site-nav {}
           #site-nav-toggle {}
             #site-nav-toggle input[type="checkbox"],
@@ -500,7 +508,7 @@
           }
             .site-nav ul li {
               display: block;
-              font-family: Montserrat, sans-serif;
+              /* font-family: Montserrat, sans-serif; */
               font-size: 0.84375;
               font-weight: 600;
               margin: 0;
@@ -512,7 +520,7 @@
                 display: block;
                 padding: 0.18rem 1em;
                 font-weight: 600;
-                font-family: Montserrat, sans-serif;
+                /* font-family: Montserrat, sans-serif; */
                 text-decoration: none;
                 color: #fff;
 
@@ -534,7 +542,7 @@
                 color: #000;
                 background-color: rgba(255,255,255,1);
                 border: 1px solid rgba(255,255,255,1);
-                border-radius: 5px;
+                border-radius: 0.2em;
 
                 transition: color 0.3s ease;
               }
@@ -1089,11 +1097,12 @@
     <header class="site-header">
       <div class="site-header-layout">
         <div class="header-logo">
-          <svg class="sage-digital-logo">
-            <use href="#sage-digital-logo" />
-          </svg>
+          <a href="#home" data-uxeffect="smoothscroll">
+            <svg class="sage-digital-logo">
+              <use href="#sage-digital-logo" />
+            </svg>
+          </a>
         </div>
-
 
         <nav class="site-nav" role="navigation">
           <div id="site-nav-toggle">
@@ -1107,7 +1116,7 @@
               <li><a href="#home" data-uxeffect="smoothscroll">Home</a></li>
               <li><a href="#services" data-uxeffect="smoothscroll">Services</a></li>
               <li><a href="#about" data-uxeffect="smoothscroll">About</a></li>
-              <li><a href="https://sagedigital.freshdesk.com/" target ="_blank">Support</a></li>
+              <li><a href="https://support.sagedigital.com/" target="_blank">Support</a></li>
               <li><a href="#contact" class="cta" data-uxeffect="smoothscroll">Contact</a></li>
             </ul>
           </div>
@@ -1125,14 +1134,14 @@
             overflow: hidden;
             padding-top: 59px;
             height: calc(59px + 56.25vw);
-            background: rgb(64, 0, 77);
+            background: #fff;;
           }
 
           #hero-video,
           #hero-no-video {
             position: relative;
             height: 56.25vw;
-            background: white;
+            background: #fff;
           }
 
           #hero-no-video {
@@ -1140,7 +1149,6 @@
             text-align: center;
             width: 100%;
             z-index: 1;
-
             transition: opacity 0.55s ease;
             opacity: 0;
           }
@@ -1387,7 +1395,7 @@
                 padding: 1.333rem 0.667rem 0.667rem;
                 font: 1.33rem/1 Lato, sans-serif;
                 border: none;
-                border-radius: 3px;
+                border-radius: 0.2em;
               }
               .form-pair input + label {
                 opacity: 0;
@@ -1420,7 +1428,7 @@
                 color: #fff;
                 background-color: rgba(0,0,0,0.8);
                 border: 1px solid rgba(0,0,0,1);
-                border-radius: 5px;
+                border-radius: 0.2em;
 
                 transition: color 0.3s ease;
               }
@@ -1531,7 +1539,7 @@
         }
 
         function error() {
-          status.innerHTML = "Oops! There was a problem.";
+          status.innerHTML = "Oops! There was a problem.<br>Please refresh the page and try again.";
         }
 
         // handle the form submission event
