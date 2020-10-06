@@ -306,13 +306,7 @@
       /* ------------------------------------------------------------------- */
 
       .site-header-layout {
-        background-image: linear-gradient(178.5deg,
-          rgba(64, 0, 77, 1),
-          rgba(64, 0, 77, 1) 70%,
-          rgba(0,0,0,0.2) 70.5%,
-          rgba(0,0,0,0.2) 75%,
-          transparent 75.5%
-        );
+        background-image: linear-gradient(180deg, rgba(0,0,0, 0.25), rgba(0,0,0, 0));
         height: 105px;
         position: fixed;
         width: 100%;
@@ -326,7 +320,7 @@
         width: 40vw;
       }
         .header-logo .sage-digital-logo {
-          fill: #00CCFF;
+          fill: #fff;
           height: 20px;
           position: absolute;
           width: 140px;
@@ -491,7 +485,7 @@
             .site-nav ul li {
               display: block;
               font-size: 0.84375;
-              font-weight: 600;
+              font-weight: 400;
               margin: 0;
               padding: 0;
             }
@@ -500,9 +494,10 @@
               .site-nav ul li a:visited {
                 display: block;
                 padding: 0.18rem 1em;
-                font-weight: 600;
+                font-weight: 400;
                 text-decoration: none;
                 color: #fff;
+                text-shadow: 0 0 13px rgba(0,0,0,0.4);
 
                 transition: color 0.3s ease;
               }
@@ -523,6 +518,7 @@
                 background-color: rgba(255,255,255,1);
                 border: 1px solid rgba(255,255,255,1);
                 border-radius: 0.2em;
+                text-shadow: none;
 
                 transition: color 0.3s ease;
               }
@@ -725,6 +721,9 @@
         padding: 1rem 1rem 33vh;
         background-color: #00CCFF;
       }
+        .site-footer p {
+          opacity: 0.33;
+        }
         .site-footer a:visited,
         .site-footer a:link,
         .site-footer a:active {
@@ -741,7 +740,7 @@
         }
           .header-logo .sage-digital-logo {
             position: absolute;
-            fill: #00CCFF;
+            fill: #fff;
             max-width: 62vw;
           }
 
@@ -842,7 +841,7 @@
         .header-logo {}
           .header-logo .sage-digital-logo {
             position: absolute;
-            fill: #00CCFF;
+            fill: #fff;
             width: 210px;
           }
 
@@ -1066,8 +1065,9 @@
           .hero-video-frame {
             position: relative;
             overflow: hidden;
-            padding-top: 59px;
-            height: calc(59px + 56.25vw);
+            /* padding-top: 59px; */
+            /* height: calc(59px + 56.25vw); */
+            height: calc(56.25vw);
             background: #fff;;
           }
 
@@ -1323,7 +1323,7 @@
               .form-pair input {
                 width: 100%;
                 padding: 1.333rem 0.667rem 0.667rem;
-                font: 1.33rem/1 Lato, sans-serif;
+                font: 1.25rem/1 Lato, sans-serif;
                 border: none;
                 border-radius: 0.2em;
               }
@@ -1335,7 +1335,7 @@
                 left: 0;
                 padding: 1.333rem 0.75rem 0.667rem;
                 color: #777;
-                font: 1.33rem/1 Lato, sans-serif;
+                font: 1.25rem/1 Lato, sans-serif;
               }
               /* .form-pair input:focus, */
               .form-pair input:not(:placeholder-shown) {
@@ -1352,13 +1352,14 @@
               }
               button.form-cta-btn {
                 display: inline-block;
-                padding: 0.5rem 2em;
-                font-weight: 600;
+                padding: 0.75rem 2rem;
+                font-weight: 400;
                 font-size: 0.9em;
                 color: #fff;
                 background-color: rgba(0,0,0,0.8);
                 border: 1px solid rgba(0,0,0,1);
                 border-radius: 0.2em;
+                letter-spacing: 0.025em;
 
                 transition: color 0.3s ease;
               }
